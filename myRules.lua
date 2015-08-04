@@ -273,7 +273,6 @@ tyrannical.tags = {
     position    = 10                                             ,
     exclusive   = true                                           ,
     --screen      = config.scr.irc or config.scr.pri ,
-    init        = true                                           ,
     --spawn       = "konversation"                                 ,
     --icon        = utils.tools.invertedIconPath("irc.png")        ,
     --force_screen= true                                           ,
@@ -285,13 +284,14 @@ tyrannical.tags = {
     name        = "Test",
     init        = false                                          ,
     position    = 99                                             ,
-    exclusive   = false                                          ,
+    --exclusive   = false                                          ,
     --screen      = config.scr.sec or config.scr.pri     ,
-    leave_kills = true                                           ,
-    persist     = true                                           ,
+    --leave_kills = true                                           ,
+    --persist     = true                                           ,
     --icon        = utils.tools.invertedIconPath("tools.png")      ,
     layout      = awful.layout.suit.max                          ,
-    class       = {}
+    --class       = {}                                             ,
+    fallback    = true
   } ,
   {
     name        = "Config",
@@ -364,7 +364,7 @@ tyrannical.properties.floating = {
   "xine"         , "feh"             , "kmix"       , "kcalc"        , "xcalc"          ,
   "yakuake"      , "Select Color$"   , "kruler"     , "kcolorchooser", "Paste Special"  ,
   "New Form"     , "Insert Picture"  , "kcharselect", "mythfrontend" , "plasmoidviewer" ,
-  "sflphone-client-kde", "sflphone-client-gnome", "xev",
+  "sflphone-client-kde", "sflphone-client-gnome", "xev", "MPlayer",
   amarok = false , "yakuake", "Conky"
 }
 
@@ -389,9 +389,13 @@ tyrannical.properties.maximize = {
   amarok = false,
 }
 
--- tyrannical.properties.border_width = {
---     URxvt = 0
--- }
+tyrannical.properties.maximized_horizontal = {
+  "Gimp"
+}
+
+tyrannical.properties.maximized_vertical = {
+  "Gimp"
+}
 
 tyrannical.properties.border_color = {
   URxvt = "#0A1535"
