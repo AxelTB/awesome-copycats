@@ -109,18 +109,7 @@ markup      = lain.util.markup
 -- Textclock
 clockicon = wibox.widget.imagebox(beautiful.widget_clock)
 --mytextclock = awful.widget.textclock(markup("#7788af", "%A %d %B ") .. markup("#343639", ">") .. markup("#de5e1e", " %H:%M "))
-mytextclock = lain.widgets.abase({
-    timeout  = 60,
-    cmd      = "date +'%A %d %B %R'",
-    settings = function()
-      local t_output = ""
-      local o_it = string.gmatch(output, "%S+")
-
-      for i=1,3 do t_output = t_output .. " " .. o_it(i) end
-
-      widget:set_markup(markup("#7788af", t_output) .. markup("#343639", " > ") .. markup("#de5e1e", o_it(1)) .. " ")
-    end
-  })
+mytextclock = awful.widget.textclock(markup("#de5e1e", " %H:%M "))
 
 -- Calendar
 lain.widgets.calendar:attach(mytextclock, { font_size = 10 })
@@ -348,28 +337,9 @@ for s = 1, screen.count() do
 
   -- Widgets that are aligned to the upper right
   local right_layout = wibox.layout.fixed.horizontal()
-  --right_layout:add(mailicon)
-  --right_layout:add(mailwidget)
-  right_layout:add(netdownicon)
-  right_layout:add(netdowninfo)
-  right_layout:add(netupicon)
-  right_layout:add(netupinfo)
-  right_layout:add(volicon)
-  right_layout:add(volumewidget)
-  right_layout:add(memicon)
-  right_layout:add(memwidget)
-  right_layout:add(cpuicon)
-  right_layout:add(cpuwidget)
-  right_layout:add(fsicon)
-  right_layout:add(fswidget)
-  right_layout:add(weathericon)
-  right_layout:add(myweather)
-  right_layout:add(tempicon)
-  right_layout:add(tempwidget)
-  right_layout:add(baticon)
-  right_layout:add(batwidget)
   right_layout:add(clockicon)
   right_layout:add(mytextclock)
+  
 
   -- Now bring it all together (with the tasklist in the middle)
   local layout = wibox.layout.align.horizontal()
@@ -388,6 +358,23 @@ for s = 1, screen.count() do
 
   -- Widgets that are aligned to the bottom right
   bottom_right_layout = wibox.layout.fixed.horizontal()
+  bottom_right_layout:add(netdownicon)
+  bottom_right_layout:add(netdowninfo)
+  bottom_right_layout:add(netupicon)
+  bottom_right_layout:add(netupinfo)
+  bottom_right_layout:add(volicon)
+  bottom_right_layout:add(volumewidget)
+  bottom_right_layout:add(memicon)
+  bottom_right_layout:add(memwidget)
+  bottom_right_layout:add(cpuicon)
+  bottom_right_layout:add(cpuwidget)
+  bottom_right_layout:add(fsicon)
+  bottom_right_layout:add(fswidget)
+  bottom_right_layout:add(weathericon)
+  bottom_right_layout:add(tempicon)
+  bottom_right_layout:add(tempwidget)
+  bottom_right_layout:add(baticon)
+  bottom_right_layout:add(batwidget)
   if s == 1 then bottom_right_layout:add(wibox.widget.systray()) end
   bottom_right_layout:add(mylayoutbox[s])
 
