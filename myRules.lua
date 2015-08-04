@@ -119,7 +119,7 @@ tyrannical.tags = {
   } ,
   {
     name = "Edit",
-    init        = true                                           ,
+    init        = false                                           ,
     exclusive   = false                                           ,
     --                     screen      = {config.scr.pri, config.scr.sec}     ,
 --    icon        = utils.tools.invertedIconPath("editor.png")     ,
@@ -129,7 +129,7 @@ tyrannical.tags = {
   } ,
   {
     name = "Media",
-    init        = true                                           ,
+    init        = false                                           ,
     exclusive   = true                                           ,
 --    icon        = utils.tools.invertedIconPath("media.png")      ,
     layout      = awful.layout.suit.max                          ,
@@ -139,7 +139,7 @@ tyrannical.tags = {
   } ,
   {
     name = "Doc",
-    --  init        = true                                           ,
+    init        = false                                           ,
     exclusive   = true                                           ,
   --  icon        = utils.tools.invertedIconPath("info.png")       ,
     --                     screen      = config.scr.music                          ,
@@ -340,13 +340,12 @@ tyrannical.tags = {
   } ,
   {
     name        = "MediaCenter",
-    init        = true                                           ,
+    init        = false                                           ,
     position    = 15                                             ,
     exclusive   = false                                          ,
     --icon        = utils.tools.invertedIconPath("video.png")      ,
     max_clients = 5                                              ,
     --screen      = config.scr.media or config.scr.pri   ,
-    init        = "mythfrontend"                                 ,
     layout      = awful.layout.suit.tile                         ,
     class       = {"mythfrontend"  , "xbmc" , "xbmc.bin"        ,}
   } ,
