@@ -16,6 +16,7 @@ local naughty   = require("naughty")
 local drop      = require("scratchdrop")
 local lain      = require("lain")
 local tyrannical = require("tyrannical")
+local menuLauncher = require("widgets.menuLauncher")
 -- }}}
 
 -- {{{ Error handling
@@ -355,6 +356,7 @@ for s = 1, screen.count() do
 
   -- Widgets that are aligned to the bottom left
   bottom_left_layout = wibox.layout.fixed.horizontal()
+  bottom_left_layout:add(menuLauncher)
 
   -- Widgets that are aligned to the bottom right
   bottom_right_layout = wibox.layout.fixed.horizontal()
@@ -639,7 +641,9 @@ awful.rules.rules = {
       focus = awful.client.focus.filter,
       keys = clientkeys,
       buttons = clientbuttons,
-      size_hints_honor = false } }
+      size_hints_honor = false } },
+  { rule = { class = "URxvt" },
+    properties = { opacity = 0.99 } },
 }
 -- }}}
 
