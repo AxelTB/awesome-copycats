@@ -740,3 +740,13 @@ for s = 1, screen.count() do screen[s]:connect_signal("arrange", function ()
     end)
 end
 -- }}}
+
+-- {{{ Load personal.lua
+
+local pers= loadfile(awful.util.getdir("config")..'/personal.lua')
+if pers ~= nil then
+  pers()
+  print("Info: personal.lua file loaded")
+else
+  print("Warn: personal.lua file not found")
+end
